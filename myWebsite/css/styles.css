@@ -47,12 +47,17 @@ header {
     float: left;
 }
 
-header h1 {
+h1 {
     
-    padding: 2%;
+    padding: 12%;
+    text-align: center;
+}
+h2 {
+    padding: 50px;
+    text-align: center;
 }
 
-header h3 {
+h3 {
     font-size: 1em;
     font-style: italic;
     padding: 1.5%;
@@ -144,6 +149,14 @@ main ul {
     margin-left: 10%;
 }
 
+
+label, input, select, button {
+    display: block;
+    margin-bottom: 10px;
+    width: 50%;
+    
+}
+
 /* Style rules for footer content */
 footer {
     text-align: center;
@@ -205,5 +218,6 @@ footer a {
         color: #666699;
         background-color: #e2eae2;
     }
+
     
 }
