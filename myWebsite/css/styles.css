@@ -16,6 +16,49 @@ body, header, nav, main, footer, img, h1, h3, ul {
 body {
     background-color: #d1d1e0;
 }
+.wrapper { 
+    padding: 20px;
+}
+    
+    .tip {
+        text-align: center;
+        font-size: 18px;
+        display: none;
+    }
+    .tipPercentage {
+        display: none; 
+        font-size: 24px; 
+        color: #33334d; 
+        margin-top: 20px; 
+        font-weight: bold;
+   }
+   /*.tipAmount{
+    display: none;
+    font-size: 24px;
+    color: #33334d;
+    margin-top: 20px;
+    font-weight: bold;
+   }*/
+    .custom-alert {
+        display: none; 
+        color: red;
+        background-color: white; 
+        padding: 10px;
+        border-radius: 5px;
+        margin-top: 10px;
+        font-size: 16px;
+        text-align: center;
+    }
+    .container {
+        width: 350px;
+        height: 500px;
+        background-color: #fff;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translateX(-50%) translateY(-50%);
+        border-radius: 20px;
+    }
 
 img {
 
@@ -26,7 +69,7 @@ img {
         /*border: 5px solid #3d3d5c;*/
         padding-left: 550px;
       }
-
+    
 
 /* Style rules for mobile viewport */
 

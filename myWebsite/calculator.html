@@ -27,25 +27,69 @@
                 </ul>
             </nav>
         <main>
-            
+            <div class="container"> 
             <h2>Tip Calculator</h2>
+            <div class="wrapper">
+            
            <form>
             
             <label for="billTotal">Bill Total:</label>
-            <input type="number" id="billTotal" min="0" step="0.01" required>
+            <input type="number" id="billTotal" min="0" step="0.01" placeholder= "Amount to be paid">
         
             <label for="tipPercentage">Tip Percentage:</label>
             <select id="tipPercentage">
+                <option value = ""selected disabled hidden>Select</option>
                 <option value="0.25">Excellent - 25%</option>
                 <option value="0.20">Good - 20%</option>
                 <option value="0.15">Fair - 15%</option>
                 <option value="0.10">Poor - 10%</option>
             </select>
         </form>
-            <button>Calculate Tip</button>
         
-            <div id="result"></div>
+           <button id="calculate">Calculate Tip</button>
+            </div>
+            <div class="tipPercentage"style="display: none;"></div>
+            <!--<div class="totalAmount"style="display: none;"></div>-->
+           
+            
+                <p>Tip Amount</p>
+            <span id="total">$</span>
+
+            <div id="customAlert" class="custom-alert">Please enter your bill total!</div>
+           
+            </div>
+            </div>
+
+        <script>
+                window.onload = () =>
+            {
+                document.querySelector('#calculate').onclick = calculateTip;
+                /*document.querySelector('#calculate').onclick = calculatetotalAmount;*/
+            }
+                function calculateTip() {
+                    let billTotal = document.querySelector('#billTotal').value;
+                    let tipPercentage = document.querySelector('#tipPercentage').value;
+                    /*let totalAmountElement = document.getElementById('totalAmount').value;*/
+                
+                    if (billTotal === '' || tipPercentage ==='') {
+                        document.querySelector('#customAlert').style.display = 'block';
+                        return;
+        }
+            
+            let total = billTotal * tipPercentage;
+            total = total.toFixed(2);
+            /*let totalAmount = billAmount + tipAmount;*/
+
+            document.querySelector('.tipPercentage').style.display = 'block';
+            document.querySelector('#total').innerHTML = total;
+
+            /*document.querySelector('#customAlert').style.display = 'none';*/
+            
+                }
+            
+            </script>
         </main>
+
         <footer>
 			<a href="mailto:kathystanton@westernwyoming.edu">kathystanton@westernwyoming.edu</a>
 			<p>&copy; Copyright 2024. All Rights Reserved.</p>
