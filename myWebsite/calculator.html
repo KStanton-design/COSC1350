@@ -1,6 +1,5 @@
-<!DOCTYPE html>
- 
-<!--
+ <!DOCTYPE html>
+ <!--
 	Student Name: Kathy Stanton
 	File Name: calculator.html
 	Date: 10/1/24
@@ -33,10 +32,10 @@
             
                 <form>
             
-                <label for="billTotal">Bill Total:</label>
+                <label for="billTotal">Bill Total:</label> <!--Bill total box-->
                 <input type="number" id="billTotal" min="0" step="0.01" placeholder= "Amount to be paid">
         
-                <label for="tipPercentage">Tip Percentage:</label>
+                <label for="tipPercentage">Tip Percentage:</label><!--Tip percentage box-->
                 <select id="tipPercentage">
                     <option value = ""selected disabled hidden>Select</option>
                     <option value="0.25">Excellent - 25%</option>
@@ -46,46 +45,52 @@
                 </select>
                 </form>
         
-                <button id="calculate">Calculate Tip</button>
+                <button id="calculate">Calculate Tip</button> 
             
-                <div class="tipPercentage"style="display: none;"></div>
-                <!--<div class="totalAmount"style="display: none;"></div>-->
-           
-            
-                <p>Tip Amount</p>
-                <span id="total">$</span>
+                <div class="tipPercentage"style="display: none;">
+                
+                <p>Tip Amount:<span id="total">$0.00</span></p>
+                
+                <p>Grand Total:<span id="GrandTotal">$0.00</span></p>
+                
+                </div>
 
                 <div id="customAlert" class="custom-alert">Please enter your bill total!</div>
             </div>
            
         </div>
-            
 
         <script>
             window.onload = () =>
             {
                 document.querySelector('#calculate').onclick = calculateTip;
-                /*document.querySelector('#calculate').onclick = calculatetotalAmount;*/
-            }
+                /*document.querySelector('#GrandTotal').onclick = GrandTotal;*/
+                
+            };
             function calculateTip() {
                 let billTotal = document.querySelector('#billTotal').value;
-                let tipPercentage = document.querySelector('#tipPercentage').value;
-                /*let totalAmountElement = document.getElementById('totalAmount').value;*/
-                
+                let tipPercentage = Number(document.querySelector('#tipPercentage').value);
+            /*function GrandTotal()*/ {
+                let grandTotal = (billTotal + Number(total)).toFixed(2);
+            }
+        
+            
                 if (billTotal === '' || tipPercentage ==='') {
                     document.querySelector('#customAlert').style.display = 'block';
+                    document.querySelector('.tipPercentage').style.display = 'none';
                     return;
                 }
             
-                let total = billTotal * tipPercentage;
-                total = total.toFixed(2);
-                /*let totalAmount = billAmount + tipAmount;*/
-
-                document.querySelector('.tipPercentage').style.display = 'block';
-                document.querySelector('#total').innerHTML = total;
-
-                /*document.querySelector('#customAlert').style.display = 'none';*/
+                let tipAmount = (billTotal * tipPercentage / 100).toFixed(2);
+                let GrandTotal = (billTotal + Number(tipAmount)).toFixed(2);
+                /*total = total.toFixed(2);
+                /*let GrandTotal = (billTotal + Number(total)).toFixed(2); /*Had this first. moved to line 75*/
             
+                document.querySelector('.tipPercentage').style.display = 'block';
+                document.querySelector('#tipAmount').innerHTML = '$${TipAmount}';
+                document.querySelector('#GrandTotal').innerHTML = '$${grandTotal};
+                document.querySelector('#customAlert').style.display = 'none';
+                
             }
             
         </script>
