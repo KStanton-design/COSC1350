@@ -16,39 +16,21 @@ body, header, nav, main, footer, img, h1, h3, ul {
 body {
     background-color: #d1d1e0;
 }
-.wrapper { 
-    padding: 20px;
-}
     
-    .tip {
+    .totalTip {
         text-align: center;
         font-size: 18px;
         display: none;
     }
-    .tipPercentage {
-        display: none; 
-        font-size: 24px; 
-        color: #33334d; 
-        margin-top: 20px; 
-        font-weight: bold;
-   }
-   /*.tipAmount{
+   
+   .tipAmount{
     display: none;
     font-size: 24px;
     color: #33334d;
     margin-top: 20px;
     font-weight: bold;
-   }*/
-    .custom-alert {
-        display: none; 
-        color: red;
-        background-color: white; 
-        padding: 10px;
-        border-radius: 5px;
-        margin-top: 10px;
-        font-size: 16px;
-        text-align: center;
-    }
+   }
+   
     .container {
         width: 350px;
         height: 500px;
