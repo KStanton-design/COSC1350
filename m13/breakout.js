@@ -53,6 +53,7 @@ for (let row = 0; row < brickRows; row++) {
 }
 
 let gameOver = false;
+let score = 0; //initial score
 
 // Functions to draw game elements
 function ballRender() {
@@ -100,6 +101,7 @@ function detectCollision() {
       ) {
         yMoveDist = -yMoveDist;
         brick.status = 0;
+        score += 10; //Increase Score by 10 w/ each brick
       }
     }
   }
@@ -112,6 +114,11 @@ function showGameOverMessage() {
   ctx.fillStyle = "red";
   ctx.textAlign = "center";
   ctx.fillText("Game Over", canvas.width / 2, canvas.height / 2);
+
+  // Display "Click anywhere to reset"
+  ctx.font = "20px Arial";
+  ctx.fillStyle = "black";
+  ctx.fillText("Click anywhere to reset", canvas.width / 2, canvas.height / 2 + 20);
 
   // Add a click listener to restart the game
   canvas.addEventListener("click", () => {
@@ -127,6 +134,7 @@ function draw() {
   ballRender();
   drawPaddle();
   drawBricks();
+  drawScore(); //DrawScore
   detectCollision();
 
   // Move ball
@@ -159,6 +167,14 @@ function draw() {
     xPaddle -= 15;
   }
 
+function drawScore(){ //draw Score
+    ctx.font = "20px Arial";
+    ctx.fillStyle = "#000";
+    ctx.textAlign = "left";
+    ctx.fillText(`Score: ${score}`, 10, 25);
+  }
+
+
   requestAnimationFrame(draw);
 }
 
@@ -179,4 +195,5 @@ draw();
 //ball speed - the higher the number the slower the ball will travel
 const refreshRate = 20;
 setInterval(updateGame, refreshRate);
+
 
